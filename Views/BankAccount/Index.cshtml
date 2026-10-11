@@ -1,0 +1,47 @@
+@model List<wt_lab4_4mvc_akushevich.Models.BankAccount>
+
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold">Каталог счетов</h1>
+            <p class="text-muted">Система управления банковскими счетами</p>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">
+            Добавить счёт
+        </a>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var account in Model)
+        {
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm rounded-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-secondary">ID: @account.Id</span>
+                            @if (account.IsActive)
+                            {
+                                <span class="badge bg-success">Активен</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Закрыт</span>
+                            }
+                        </div>
+                        <h5 class="card-title">@account.AccountNumber</h5>
+                        <p class="text-muted mb-2">@account.OwnerName</p>
+                        <p class="fs-4 fw-bold">@account.Balance.ToString("N2") BYN</p>
+                                                <a asp-action="Details" asp-route-id="@account.Id"
+                           class="btn btn-outline-primary">
+                            Подробнее
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@account.Id"
+                           class="btn btn-outline-danger">
+                            Удалить
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

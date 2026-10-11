@@ -1,0 +1,32 @@
+@model wt_lab4_4mvc_akushevich.Models.BankAccount
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4" style="max-width: 500px;">
+        <div class="card-body">
+            <h2 class="mb-4">Добавление счёта</h2>
+
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="OwnerName" class="form-label">Владелец</label>
+                    <input asp-for="OwnerName" class="form-control" />
+                    <span asp-validation-for="OwnerName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AccountNumber" class="form-label">Номер счёта</label>
+                    <input asp-for="AccountNumber" class="form-control" />
+                    <span asp-validation-for="AccountNumber" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Balance" class="form-label">Начальный баланс</label>
+                    <input asp-for="Balance" class="form-control" />
+                    <span asp-validation-for="Balance" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <a asp-action="Index" class="btn btn-secondary">Назад</a>
+            </form>
+        </div>
+    </div>
+</div>

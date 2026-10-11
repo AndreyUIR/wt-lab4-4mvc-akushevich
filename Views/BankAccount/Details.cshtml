@@ -1,0 +1,27 @@
+@model wt_lab4_4mvc_akushevich.Models.BankAccount
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4" style="max-width: 500px;">
+        <div class="card-body">
+            <h2 class="mb-3">Счёт @Model.AccountNumber</h2>
+
+            <p><strong>ID:</strong> @Model.Id</p>
+            <p><strong>Владелец:</strong> @Model.OwnerName</p>
+            <p><strong>Номер счёта:</strong> @Model.AccountNumber</p>
+            <p><strong>Баланс:</strong> @Model.Balance.ToString("N2") BYN</p>
+            <p>
+                <strong>Статус:</strong>
+                @if (Model.IsActive)
+                {
+                    <span class="badge bg-success">Активен</span>
+                }
+                else
+                {
+                    <span class="badge bg-danger">Закрыт</span>
+                }
+            </p>
+
+            <a asp-action="Index" class="btn btn-secondary">Назад к списку</a>
+        </div>
+    </div>
+</div>
